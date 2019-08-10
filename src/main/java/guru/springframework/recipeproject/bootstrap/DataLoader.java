@@ -4,6 +4,7 @@ import guru.springframework.recipeproject.domain.*;
 import guru.springframework.recipeproject.repositories.CategoryRepository;
 import guru.springframework.recipeproject.repositories.RecipeRepository;
 import guru.springframework.recipeproject.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Slf4j
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     private final RecipeRepository recipeRepository;
@@ -34,6 +36,8 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     private List<Recipe> getRecipes(){
+
+        log.debug("Get Recipes....");
 
         List<Recipe> recipes = new ArrayList<>(2);
 
@@ -62,6 +66,8 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         Category americanCategory = optionalAmericanCategory.get();
         Category mexicanCategory = optionalMexicanCategory.get();
+
+        log.debug("American Category" + americanCategory.getDescription());
 
         //Guacamole
         Recipe guacRecipe = new Recipe();
