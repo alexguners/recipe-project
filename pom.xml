@@ -75,6 +75,9 @@
 						<additionalClasspathElement>${basedir}/target/classes</additionalClasspathElement>
 					</additionalClasspathElements>
 					<parallel>none</parallel>
+                    <skipTests>false</skipTests>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <forkMode>once</forkMode>
 				</configuration>
 				<executions>
 					<execution>
