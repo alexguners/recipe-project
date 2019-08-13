@@ -72,6 +72,7 @@
 						<include>**/*IT.java</include>
 					</includes>
 					    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+					            <useSystemClassLoader>false</useSystemClassLoader>
                 		</configuration>
 				<executions>
 				  <execution>
