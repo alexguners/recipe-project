@@ -71,22 +71,14 @@
 					<includes>
 						<include>**/*IT.java</include>
 					</includes>
-					<additionalClasspathElements>
-						<additionalClasspathElement>${basedir}/target/classes</additionalClasspathElement>
-					</additionalClasspathElements>
-					<parallel>none</parallel>
-                    <skipTests>false</skipTests>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <forkMode>once</forkMode>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                </configuration>
+                		</configuration>
 				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
+				  <execution>
+				    <goals>
+				      <goal>integration-test</goal>
+				      <goal>verify</goal>
+				    </goals>
+				  </execution>
 				</executions>
 			</plugin>
         </plugins>
