@@ -78,7 +78,8 @@
                     <skipTests>false</skipTests>
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkMode>once</forkMode>
-				</configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
 				<executions>
 					<execution>
 						<goals>
