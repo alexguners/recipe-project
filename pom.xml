@@ -73,6 +73,8 @@
 					</includes>
 					    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 					            <useSystemClassLoader>false</useSystemClassLoader>
+					                    <forkCount>0</forkCount>
+
                 		</configuration>
 				<executions>
 				  <execution>
