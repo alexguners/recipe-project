@@ -18,23 +18,13 @@ import java.util.Optional;
 @Slf4j
 public class IndexController {
 
-    private CategoryRepository categoryRepository;
-    private UnitOfMeasureRepository unitOfMeasureRepository;
-    private RecipeService recipeService;
 
-
-    public IndexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository, RecipeService recipeService) {
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
-        this.recipeService = recipeService;
-    }
+    private final RecipeService recipeService;
 
     public IndexController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
 
-    public IndexController() {
-    }
 
     @RequestMapping({"","/","/index","/index.html"})
     public String getIndexPage(Model model){

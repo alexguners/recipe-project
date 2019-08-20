@@ -103,6 +103,8 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         guacRecipe.setNotes(guacNotes);
 
         guacRecipe.addIngredient(new Ingredient("ripe avocados",new BigDecimal(2), eachUom));
+        guacRecipe.addIngredient(new Ingredient("tomatos",new BigDecimal(3), eachUom));
+        guacRecipe.addIngredient(new Ingredient("pepper",new BigDecimal(1), eachUom));
 
         recipes.add(guacRecipe);
 
