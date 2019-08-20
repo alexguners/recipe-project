@@ -55,7 +55,7 @@ public class UnitOfMeasureServiceImplTest {
         log.debug("Size Uom "+ command.size());
 
         assertEquals(2,command.size());
-        //verify(unitOfMeasureRepository,times(1));
+        verify(unitOfMeasureRepository,times(1)).findAll();
     }
 
 
