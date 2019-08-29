@@ -1,6 +1,7 @@
 package guru.springframework.recipeproject.controllers;
 
 import guru.springframework.recipeproject.domain.Recipe;
+import guru.springframework.recipeproject.exceptions.NotFoundException;
 import guru.springframework.recipeproject.repositories.RecipeRepository;
 import guru.springframework.recipeproject.services.RecipeService;
 import org.junit.Before;
@@ -10,6 +11,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -51,6 +54,8 @@ public class RecipeControllerTest {
                 .andExpect(view().name("recipe/show"));
     }
 
+
+
     @Test
     public void testDeleteAction() throws Exception{
         mockMvc.perform(get("/recipe/1/delete"))
@@ -58,5 +63,22 @@ public class RecipeControllerTest {
                 .andExpect(view().name("redirect:/"));
 
         verify(recipeService, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void testRecipeNodFoundHandle() throws Exception{
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/4/show"))
+                .andExpect(status().isNotFound())
+                .andExpect(view().name("404error"));
+    }
+
+    @Test
+    public void testRecipeNumberFormatException() throws  Exception{
+        mockMvc.perform(get("/recipe/teste/show"))
+                .andExpect(status().isBadRequest())
+                .andExpect(view().name("400error"));
+
     }
 }
